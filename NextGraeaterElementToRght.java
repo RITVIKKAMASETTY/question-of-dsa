@@ -1,0 +1,43 @@
+import java.util.Stack;
+
+public class NextGraeaterElementToRght{
+    public int[] nextLargerElement(int[] arr) {
+        int n=arr.length;
+        int b[]=new int[n];
+        if(arr.length==0){return(b);}
+    Stack<Integer> a=new Stack<>();
+    for(int i=n-1;i>=0;i--)
+    {
+        while(!a.isEmpty()&&a.peek()<=arr[i])
+        {
+            a.pop();
+        }
+        if(a.isEmpty())
+        {
+            b[i]=-1;
+            a.push(arr[i]);
+        }
+        else
+        {
+            b[i]=a.peek();
+            a.push(arr[i]);
+        }
+//     }return(b);}} Given an array arr of size n containing elements, find the next greater element for each element in the array in the order of their appearance.
+
+// The next greater element of an element in the array is the nearest element on the right that is greater than the current element.
+
+// If there does not exist a next greater element for the current element, then the next greater element for that element is -1.
+
+// Example 1:
+// Input: arr = [1, 3, 2, 4]
+
+// Output: [3, 4, 4, -1]
+
+// Explanation: In the array, the next larger element to 1 is 3, 3 is 4, 2 is 4 and for 4 is -1, since it does not exist.
+
+// Example 2:
+// Input: arr = [6, 8, 0, 1, 3]
+
+// Output: [8, -1, 1, 3, -1]
+
+// Explanation: In the array, the next larger element to 6 is 8, for 8 there is no larger elements hence it is -1, for 0 it is 1 , for 1 it is 3 and then for 3 there is no larger element on the right and hence -1.
